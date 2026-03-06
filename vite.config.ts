@@ -19,7 +19,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://localhost:3000",
+        target: "https://globogreen-association-app-server.onrender.com",
         changeOrigin: true,
       },
     },
