@@ -1,14 +1,19 @@
 // src/lib/authBootstrap.ts
-import { raw, API_PREFIX } from "./Axios";
+import { raw } from "./Axios";
+import SummaryApi from "../constants/SummaryApi";
 import { store } from "../redux/store";
-import { setUser, setLoading, logout, setHydrated } from "../redux/slices/auth.slice";
+import {
+  setUser,
+  setLoading,
+  logout,
+  setHydrated,
+} from "../redux/slices/auth.slice";
 
 export async function bootstrapAuth() {
   try {
     store.dispatch(setLoading(true));
 
-    // ✅ cookie session check
-    const res = await raw.get(`${API_PREFIX}/auth/me`);
+    const res = await raw.get(SummaryApi.me.url);
     const user = (res as any).data?.user ?? (res as any).data?.data ?? null;
 
     if (user) {

@@ -211,7 +211,7 @@ export default function SubscriptionUpsertPage() {
       setReceiptFile(null);
 
       // go to history page (recommended)
-      navigate("/admin/subscriptions/history");
+      navigate("/admin/subscription/history");
     } catch (err: any) {
       setMessage(err?.response?.data?.message || "Failed to save subscription.");
     } finally {
@@ -246,7 +246,7 @@ export default function SubscriptionUpsertPage() {
 
             <Button
               type="button"
-              onClick={() => navigate("/admin/subscriptions/history")}
+              onClick={() => navigate("/admin/subscription/history")}
               className="bg-white/60 border border-white/40 text-slate-900 hover:bg-white/70 rounded-xl"
             >
               View History
